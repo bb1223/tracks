@@ -9,7 +9,7 @@
       Showing {{tracks.length}} tracks.
     </div>    
   </div>
-  <div *ngIf="tracks.length > 1">
+  <div *ngIf="tracks.length > 0">
     <div *ngFor="let track of tracks">
       <app-track-detail [track]="track"></app-track-detail>
     </div>
