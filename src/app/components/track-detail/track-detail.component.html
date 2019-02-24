@@ -1,0 +1,11 @@
+<div class="row track-detail">
+  <div class="col-sm">
+    <img src="{{track.artworkUrl100}}" alt="">
+  </div>
+  <div class="col-sm">
+    {{track.trackName}} <span *ngIf="!track.trackName" class="text-muted">Unknown Title</span> - {{track.artistName}}
+  </div>
+  <div class="col-sm">
+    {{track.releaseDate | date}}
+  </div>
+</div>

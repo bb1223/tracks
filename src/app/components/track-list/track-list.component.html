@@ -1,0 +1,22 @@
+<div class="track-list-container">
+  <h5>Search for artist's tracks on iTunes</h5>
+  <app-track-search (onSearch)="searchArtist($event)"></app-track-search>
+  <div *ngIf="dataLoaded" class="info">
+    <div *ngIf="tracks.length < 1">
+      No results found. Please change your search criteria.
+    </div>
+    <div *ngIf="tracks.length > 0">
+      Showing {{tracks.length}} tracks.
+    </div>    
+  </div>
+  <div *ngIf="tracks.length > 1">
+    <div *ngFor="let track of tracks">
+      <app-track-detail [track]="track"></app-track-detail>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center" *ngIf="isLoading">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+</div>

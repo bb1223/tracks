@@ -1,0 +1,25 @@
+<div class="row search-container">
+  <div class="col-sm">
+    <label for="term">Artist Name</label>
+    <input name="term" required id="term" #termField="ngModel" type="text" [(ngModel)]="term" class="form-control" pattern="[0-9a-zA-Z ]*">
+  </div>
+  <div class="col-sm">
+    <label for="">Release Date Range</label>
+    <app-daterange [dateRange]="dateRange"></app-daterange>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm error" *ngIf="termField.invalid && (termField.touched || termField.dirty)">
+    <span *ngIf="termField.errors.required">
+      Please enter an artist's name
+    </span>
+    <span *ngIf="termField.errors.pattern">
+      Please enter only alpha-numeric values.
+    </span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm search">
+    <button class="btn btn-primary pull-right" (click)="search()" [disabled]="term.length < 1 || termField.invalid ? true : null">Search</button>
+  </div>
+</div>
