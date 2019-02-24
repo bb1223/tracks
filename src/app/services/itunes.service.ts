@@ -24,7 +24,7 @@ export class ITunesService {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<TrackResponse>(`${this.itunesUrl}/?term=${term}&limit=200&attribute=artistTerm`).pipe(
+    return this.http.get<TrackResponse>(`${this.itunesUrl}/?term=${term}&limit=200&attribute=allArtistTerm`).pipe(
       map(res => res.results.map(t => ({
         artworkUrl100: t.artworkUrl100,
         artistName: t.artistName,
